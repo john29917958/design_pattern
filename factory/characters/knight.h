@@ -1,4 +1,3 @@
-#pragma once
 #ifndef KNIGHT_H
 #define KNIGHT_H
 
