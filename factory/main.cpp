@@ -5,13 +5,21 @@ int main(int argc, char *argv[])
 {
     character_factory factory;
     
-    character *k = factory.make(1, "John Doe", 100, 100);
-    printf("Character name: %s\n", k->get_name().c_str());
+    character *c = factory.make(1, "John Doe", 100, 100);
+    printf("Character name: %s\n", c->get_name().c_str());
 
-    k->set_name("Marry");
-    printf("Character name: %s\n", k->get_name().c_str());
+    c->set_name("Allen");
+    printf("Character name: %s\n", c->get_name().c_str());
 
-    k->attack();
+    c->attack();
+
+    c = factory.make(2, "Mary", 100, 100);
+    printf("Character name: %s\n", c->get_name().c_str());
+
+    c->set_name("Alice");
+    printf("Character name: %s\n", c->get_name().c_str());
+
+    c->attack();
 
     return 0;
 }

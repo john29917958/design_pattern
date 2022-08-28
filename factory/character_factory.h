@@ -5,6 +5,7 @@
 #include <stdexcept>
 #include "characters/character.h"
 #include "characters/knight.h"
+#include "characters/magician.h"
 
 class character_factory
 {
