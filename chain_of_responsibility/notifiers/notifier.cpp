@@ -19,18 +19,18 @@ void notifier::notify(levels level, std::string message)
     }
 }
 
-notifier *notifier::next(notifier *next)
+std::shared_ptr<notifier> notifier::next(std::shared_ptr<notifier> next)
 {
     notifier *n = this;
 
     while (n->_next != nullptr)
     {
-        n = n->_next;
+        n = n->_next.get();
     }
 
     n->_next = next;
 
-    return this;
+    return shared_from_this();
 }
 
 std::string notifier::to_str(levels level)

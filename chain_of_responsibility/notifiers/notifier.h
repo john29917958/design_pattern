@@ -2,6 +2,8 @@
 #define NOTIFIER_H
 
 #include <stdio.h>
+#include <memory>
+#include <mutex>
 #include <string>
 #include <stdexcept>
 
@@ -12,11 +14,11 @@ enum class levels
     error
 };
 
-class notifier
+class notifier : public std::enable_shared_from_this<notifier>
 {
 public:
     notifier(levels level);
-    notifier *next(notifier *notifier);
+    std::shared_ptr<notifier> next(std::shared_ptr<notifier> notifier);
     void notify(levels level, std::string message);
 
 protected:
@@ -24,7 +26,7 @@ protected:
 
 private:
     levels _notify_level;
-    notifier *_next = nullptr;
+    std::shared_ptr<notifier> _next = nullptr;
     std::string to_str(levels level);
 };
 
