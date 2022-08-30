@@ -11,7 +11,6 @@ input *input::instance()
 {
     if (input::_input == nullptr)
     {
-        srand(time(NULL));
         input::_input = new input();
     }
 
