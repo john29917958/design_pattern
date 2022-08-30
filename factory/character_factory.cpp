@@ -1,6 +1,6 @@
 #include "character_factory.h"
 
-character *character_factory::make(int id, std::string name, int health, int mana)
+character *character_factory::create(int id, std::string name, int health, int mana)
 {
     switch (id)
     {

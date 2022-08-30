@@ -10,7 +10,7 @@
 class character_factory
 {
 public:
-    character *make(int id, std::string name, int health, int mana);
+    character *create(int id, std::string name, int health, int mana);
 };
 
 #endif
