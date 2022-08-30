@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     character_factory factory;
     
-    character *c = factory.create(1, "John Doe", 100, 100);
+    character *c = factory.create(character_types::knight, "John Doe", 100, 100);
     printf("Character name: %s\n", c->get_name().c_str());
 
     c->set_name("Allen");
@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 
     c->attack();
 
-    c = factory.create(2, "Mary", 100, 100);
+    c = factory.create(character_types::magician, "Mary", 100, 100);
     printf("Character name: %s\n", c->get_name().c_str());
 
     c->set_name("Alice");

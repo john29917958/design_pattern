@@ -1,14 +1,14 @@
 #include "character_factory.h"
 
-character *character_factory::create(int id, std::string name, int health, int mana)
+character *character_factory::create(character_types type, std::string name, int health, int mana)
 {
-    switch (id)
+    switch (type)
     {
-    case 1:
+    case character_types::knight:
         return new knight(name, health, mana);
-    case 2:
+    case character_types::magician:
         return new magician(name, health, mana);
     default:
-        throw std::invalid_argument("Unsupported character ID: " + id);
+        throw std::invalid_argument("Invalid character type");
     }
 }
