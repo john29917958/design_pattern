@@ -1,2 +1,2 @@
-# design_pattern
+# Design Pattern
 C++ design pattern examples.
