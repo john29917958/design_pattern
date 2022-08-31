@@ -32,7 +32,7 @@ public:
     void set_state(state *state);
 
     /**
-     * @brief Executes update logic.
+     * @brief Updates the state.
      */
     void update();
 
