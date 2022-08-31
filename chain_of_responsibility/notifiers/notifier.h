@@ -16,12 +16,12 @@ enum class levels
 
 class notifier : public std::enable_shared_from_this<notifier>
 {
-public:
-    notifier(levels level);
+public:    
     std::shared_ptr<notifier> next(std::shared_ptr<notifier> notifier);
     void notify(levels level, std::string message);
 
 protected:
+    notifier(levels level);
     virtual void send_notification(levels level, std::string message) = 0;
 
 private:
