@@ -12,7 +12,7 @@ void stand_state::enter()
 void stand_state::update()
 {
     char key = input::get();
-    if (key == 'W' || key == 'A' || key == 'S' || key == 'D')
+    if (key == 'A' || key == 'D')
     {
         this->_machine->set_state(new walk_state(this->_machine));
     }

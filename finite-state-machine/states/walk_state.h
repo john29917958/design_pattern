@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "state.h"
+#include "stand_state.h"
 #include "jump_state.h"
 #include "../input/input.h"
 

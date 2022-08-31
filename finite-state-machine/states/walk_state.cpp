@@ -12,13 +12,17 @@ void walk_state::enter()
 void walk_state::update()
 {
     char key = input::get();
-    if (key == 'J')
+    if (key == 'A' || key == 'D')
+    {
+        printf("Perform walk behaviour\n");
+    }
+    else if (key == 'J')
     {
         this->_machine->set_state(new jump_state(this->_machine));
     }
     else
     {
-        printf("Perform walk behaviour\n");
+        this->_machine->set_state(new stand_state(this->_machine));
     }
 }
 

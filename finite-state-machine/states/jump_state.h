@@ -3,6 +3,8 @@
 
 #include <stdio.h>
 #include "state.h"
+#include "stand_state.h"
+#include "walk_state.h"
 
 class jump_state : public state
 {
