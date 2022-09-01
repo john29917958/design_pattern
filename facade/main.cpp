@@ -10,5 +10,8 @@ int main(int argc, char *argv[])
 
     printf(meal->get_name().c_str());
 
+    delete meal;
+    meal = nullptr;
+
     return 0;
 }
