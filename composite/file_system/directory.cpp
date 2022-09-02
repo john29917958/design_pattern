@@ -16,10 +16,12 @@ void compositefile::directory::del()
 {
     for (compositefile::file_system *file_system : this->_file_systems)
     {
-        printf(("Delete a file system object: " + file_system->get_path()).c_str());
+        file_system->del();
         delete file_system;
     }
 
     this->_file_systems.empty();
+    printf(("Delete directory: " + this->path_ + "\n").c_str());
+
     this->path_ = "";
 }
