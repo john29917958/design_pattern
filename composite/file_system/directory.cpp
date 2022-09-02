@@ -9,7 +9,7 @@ compositefile::directory::directory(std::string path) : file_system(path)
 
 void compositefile::directory::open()
 {
-    printf(("Open a directory: " + this->get_path()).c_str());
+    printf(("Open a directory: " + this->get_path() + "\n").c_str());
 }
 
 void compositefile::directory::del()
