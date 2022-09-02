@@ -2,13 +2,15 @@
 
 compositefile::directory::directory(std::string path) : file_system(path)
 {
+    /*
     this->_file_systems.push_back(new compositefile::file(".\\file-1"));
     this->_file_systems.push_back(new compositefile::file(".\\file-2"));
     this->_file_systems.push_back(new compositefile::file(".\\file-3"));
 
-    //this->_file_systems.push_back(new compositefile::directory(".\\sub-dir-1"));
-    //this->_file_systems.push_back(new compositefile::directory(".\\sub-dir-2"));
-    //this->_file_systems.push_back(new compositefile::directory(".\\sub-dir-3"));
+    this->_file_systems.push_back(new compositefile::directory(".\\sub-dir-1"));
+    this->_file_systems.push_back(new compositefile::directory(".\\sub-dir-2"));
+    this->_file_systems.push_back(new compositefile::directory(".\\sub-dir-3"));
+    */
 }
 
 void compositefile::directory::open()
