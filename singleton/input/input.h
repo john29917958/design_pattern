@@ -26,7 +26,7 @@ public:
 
 private:
     input();
-    static input *_input;
+    static input *input_;
 };
 
 #endif

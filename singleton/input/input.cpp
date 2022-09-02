@@ -1,7 +1,7 @@
 #include "input.h"
 #include <stdio.h>
 
-input *input::_input = nullptr;
+input *input::input_ = nullptr;
 
 input::input()
 {
@@ -9,12 +9,12 @@ input::input()
 
 input *input::instance()
 {
-    if (input::_input == nullptr)
+    if (input::input_ == nullptr)
     {
-        input::_input = new input();
+        input::input_ = new input();
     }
 
-    return input::_input;
+    return input::input_;
 }
 
 char input::get()
