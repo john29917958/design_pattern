@@ -7,7 +7,7 @@ input::input()
 {
 }
 
-input *input::instance()
+input *input::get_instance()
 {
     if (input::input_ == nullptr)
     {
