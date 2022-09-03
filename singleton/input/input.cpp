@@ -1,18 +1,23 @@
 #include "input.h"
 #include <stdio.h>
 
+input *input::input_ = nullptr;
+
 input::input()
 {
 }
 
-input &input::get_instance()
+input *input::get_instance()
 {
-    static input input;
+    if (input::input_ == nullptr)
+    {
+        input::input_ = new input();
+    }
 
-    return input;
+    return input::input_;
 }
 
-char input::get_key_down()
+char input::get()
 {
     int code = rand() % (90 - 65) + 65;
     char key = code;
