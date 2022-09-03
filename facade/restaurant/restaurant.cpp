@@ -4,9 +4,9 @@ restaurant::restaurant()
 {
 }
 
-void restaurant::load_chefs()
+void restaurant::load_chefs(std::string path)
 {
-    std::ifstream file_stream("res\\chefs");
+    std::ifstream file_stream(path);
     std::string line;
     while (std::getline(file_stream, line))
     {
@@ -26,14 +26,14 @@ void restaurant::load_chefs()
     }
 }
 
-void restaurant::load_recipes()
+void restaurant::load_recipes(std::string path)
 {
-    std::ifstream file_stream("res\\recipes");
+    std::ifstream file_stream(path);
     std::string line;
     while (std::getline(file_stream, line))
     {
         this->_recipes.push_back(new recipe(line));
-    }    
+    }
 }
 
 meal *restaurant::order(std::string name)

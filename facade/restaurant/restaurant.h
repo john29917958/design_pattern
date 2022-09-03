@@ -9,12 +9,38 @@
 #include "meal.h"
 #include "chef.h"
 
+/**
+ * @brief A restaurant that provides meals.
+ * @remark This class acts as a facade to all objects in a restaurant.
+ */
 class restaurant
 {
 public:
+    /**
+     * @brief Construct a new restaurant object
+     */
     restaurant();
-    void load_chefs();
-    void load_recipes();
+
+    /**
+     * @brief Loads all chefs.
+     *
+     * @param path The path to the resource file containing information of all chefs.
+     */
+    void load_chefs(std::string path);
+
+    /**
+     * @brief Loads all recipes.
+     *
+     * @param path The path to the resource file containing information of all recipes.
+     */
+    void load_recipes(std::string path);
+
+    /**
+     * @brief Orders and gets a meal.
+     *
+     * @param name The name of the meal to order.
+     * @return meal* Returns cooked meal.
+     */
     meal *order(std::string name);
 
 private:
