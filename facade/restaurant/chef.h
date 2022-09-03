@@ -21,7 +21,7 @@ class chef
 {
 public:
     chef(std::string name, sexes sex, std::string phone);
-    meal *cook(recipe *recipe);
+    meal cook(recipe *recipe);
     bool get_is_cooking();
 
 private:

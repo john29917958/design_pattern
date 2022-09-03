@@ -7,9 +7,10 @@ chef::chef(std::string name, sexes sex, std::string phone)
     this->phone = phone;
 }
 
-meal *chef::cook(recipe *recipe)
-{
-    return new meal(recipe->get_meal_name());
+meal chef::cook(recipe *recipe)
+{    
+    meal m(recipe->get_meal_name());
+    return m;
 }
 
 bool chef::get_is_cooking()

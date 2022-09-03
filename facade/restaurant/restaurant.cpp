@@ -36,13 +36,13 @@ void restaurant::load_recipes(std::string path)
     }
 }
 
-meal *restaurant::order(std::string name)
+meal restaurant::order(std::string name)
 {
     recipe *recipe = this->find_recipe(name);
     chef *chef = this->find_chef();
-    meal *meal = chef->cook(recipe);
+    meal m = chef->cook(recipe);
 
-    return meal;
+    return m;
 }
 
 chef *restaurant::find_chef()

@@ -1,4 +1,6 @@
 #include "meal.h"
+#include <math.h>
+#include <iostream>
 
 meal::meal(std::string name)
 {

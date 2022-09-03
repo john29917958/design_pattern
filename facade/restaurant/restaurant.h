@@ -41,7 +41,7 @@ public:
      * @param name The name of the meal to order.
      * @return meal* Returns cooked meal.
      */
-    meal *order(std::string name);
+    meal order(std::string name);
 
 private:
     recipe *find_recipe(std::string name);
