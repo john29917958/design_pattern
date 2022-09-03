@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     restaurant.load_recipes();
     meal *meal = restaurant.order("Hamburger");
 
-    printf(meal->get_name().c_str());
+    printf("Got %s!\n", meal->get_name().c_str());
 
     delete meal;
     meal = nullptr;

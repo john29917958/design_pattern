@@ -6,16 +6,34 @@ restaurant::restaurant()
 
 void restaurant::load_chefs()
 {
-    this->_chefs.push_back(new chef("John Doe", sexes::male, "0912-345-678"));
-    this->_chefs.push_back(new chef("Alice", sexes::female, "0923-456-789"));
-    this->_chefs.push_back(new chef("Jack", sexes::male, "0934-567-890"));
+    std::ifstream file_stream("res\\chefs");
+    std::string line;
+    while (std::getline(file_stream, line))
+    {
+        std::stringstream str_stream(line);
+        std::string token;
+        std::vector<std::string> tokens;
+
+        while (std::getline(str_stream, token, '\t'))
+        {
+            tokens.push_back(token);
+        }
+
+        this->_chefs.push_back(new chef(
+            tokens.at(0),
+            sexes_table.find(tokens.at(1))->second,
+            tokens.at(2)));
+    }
 }
 
 void restaurant::load_recipes()
 {
-    this->_recipes.push_back(new recipe("Hamburger"));
-    this->_recipes.push_back(new recipe("French Fries"));
-    this->_recipes.push_back(new recipe("Fried Chicken"));
+    std::ifstream file_stream("res\\recipes");
+    std::string line;
+    while (std::getline(file_stream, line))
+    {
+        this->_recipes.push_back(new recipe(line));
+    }    
 }
 
 meal *restaurant::order(std::string name)

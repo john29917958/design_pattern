@@ -3,6 +3,8 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
+#include <sstream>
 #include "recipe.h"
 #include "meal.h"
 #include "chef.h"

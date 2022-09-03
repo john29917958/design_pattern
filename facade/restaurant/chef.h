@@ -1,6 +1,8 @@
 #ifndef CHEF_H
 #define CHEF_H
 
+#include <string>
+#include <unordered_map>
 #include "recipe.h"
 #include "meal.h"
 
@@ -9,6 +11,11 @@ enum class sexes
     male,
     female
 };
+
+static std::unordered_map<std::string, sexes> const sexes_table =
+    {
+        {"male", sexes::male},
+        {"female", sexes::female}};
 
 class chef
 {
