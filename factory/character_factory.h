@@ -5,6 +5,8 @@
 #include <stdexcept>
 #include "characters/character.h"
 #include "characters/knight.h"
+#include <mutex>
+#include <memory>
 #include "characters/magician.h"
 
 enum class character_types
@@ -23,9 +25,9 @@ public:
      * @param name The name of the character
      * @param health The health value of the character.
      * @param mana The mana value of the character
-     * @return character* Returns a character instance.
+     * @return std::shared_ptr<character> Returns a character instance.
      */
-    character *create(character_types type, std::string name, int health, int mana);
+    std::shared_ptr<character> create(character_types type, std::string name, int health, int mana);
 };
 
 #endif

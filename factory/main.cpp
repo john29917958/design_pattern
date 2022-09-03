@@ -1,11 +1,12 @@
 #include <stdio.h>
+#include <memory>
 #include "character_factory.h"
 
 int main(int argc, char *argv[])
 {
     character_factory factory;
-    
-    character *c = factory.create(character_types::knight, "John Doe", 100, 100);
+
+    std::shared_ptr<character> c = factory.create(character_types::knight, "John Doe", 100, 100);
     printf("Character name: %s\n", c->get_name().c_str());
 
     c->set_name("Allen");
