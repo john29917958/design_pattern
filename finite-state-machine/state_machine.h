@@ -1,6 +1,7 @@
 #ifndef STATE_MACHINE_H
 #define STATE_MACHINE_H
 
+#include <memory>
 #include "states/state.h"
 #include "character/character.h"
 
@@ -22,14 +23,14 @@ public:
      * @param state The initial state.
      * @param character The character whose state the state machine controls.
      */
-    state_machine(state *state, character &character);
+    state_machine(std::shared_ptr<state> state, character &character);
 
     /**
      * @brief Sets and transits to next state.
      *
      * @param state The next state to transits to.
      */
-    void set_state(state *state);
+    void set_state(std::shared_ptr<state> state);
 
     /**
      * @brief Updates the state.
@@ -39,7 +40,7 @@ public:
     character &get_character();
 
 private:
-    state *_state = nullptr;
+    std::shared_ptr<state> _state = nullptr;
     character &_character;
 };
 

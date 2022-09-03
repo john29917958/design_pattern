@@ -5,7 +5,7 @@ state_machine::state_machine(character &character) : _character(character)
     this->_state = nullptr;
 }
 
-state_machine::state_machine(state *state, character &character) : _character(character)
+state_machine::state_machine(std::shared_ptr<state> state, character &character) : _character(character)
 {
     if (state != nullptr)
     {
@@ -17,12 +17,11 @@ state_machine::state_machine(state *state, character &character) : _character(ch
     }
 }
 
-void state_machine::set_state(state *state)
+void state_machine::set_state(std::shared_ptr<state> state)
 {
     if (this->_state != nullptr)
     {
         this->_state->exit();
-        delete this->_state;
         this->_state = nullptr;
     }
 

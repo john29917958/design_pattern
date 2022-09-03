@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <memory>
+#include <mutex>
 #include "input/input.h"
 #include "character/character.h"
 #include "state_machine.h"
@@ -9,10 +11,10 @@
 int main(int argc, char *argv[])
 {
     character character;
-    state_machine *machine = new state_machine(character);
+    std::shared_ptr<state_machine> machine = std::make_shared<state_machine>(character);
     machine->update();
 
-    machine->set_state(new stand_state(machine));
+    machine->set_state(std::make_shared<stand_state>(machine));
     machine->update();
     machine->update();
 

@@ -1,6 +1,7 @@
 #ifndef STATES_H
 #define STATES_H
 
+#include <memory>
 #include "../state_machine.h"
 
 class state_machine;
@@ -28,8 +29,8 @@ public:
     virtual void exit() = 0;
 
 protected:
-    state(state_machine *state_machine);
-    state_machine *_machine;
+    state(std::shared_ptr<state_machine> state_machine);
+    std::shared_ptr<state_machine> _machine;
 };
 
 #endif

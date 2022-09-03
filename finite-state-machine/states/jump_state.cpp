@@ -1,6 +1,6 @@
 #include "jump_state.h"
 
-jump_state::jump_state(state_machine *state_machine) : state(state_machine)
+jump_state::jump_state(std::shared_ptr<state_machine> state_machine) : state(state_machine)
 {
 }
 
@@ -21,11 +21,11 @@ void jump_state::update()
         char key = input::get();
         if (key == 'A' || key == 'D')
         {
-            this->_machine->set_state(new walk_state(this->_machine));
+            this->_machine->set_state(std::make_shared<walk_state>(this->_machine));
         }
         else
         {
-            this->_machine->set_state(new stand_state(this->_machine));
+            this->_machine->set_state(std::make_shared<stand_state>(this->_machine));
         }
     }
 }
