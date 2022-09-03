@@ -19,8 +19,7 @@ void restaurant::load_chefs(std::string path)
             tokens.push_back(token);
         }
 
-        this->_chefs.push_back(new chef(
-            tokens.at(0),
+        this->_chefs.push_back(std::make_shared<chef>(tokens.at(0),
             sexes_table.find(tokens.at(1))->second,
             tokens.at(2)));
     }
@@ -31,42 +30,58 @@ void restaurant::load_recipes(std::string path)
     std::ifstream file_stream(path);
     std::string line;
     while (std::getline(file_stream, line))
-    {
-        this->_recipes.push_back(new recipe(line));
+    {        
+        this->_recipes.push_back(std::make_shared<recipe>(line));
     }
 }
 
-meal restaurant::order(std::string name)
+std::shared_ptr<meal> restaurant::order(std::string name)
 {
-    recipe *recipe = this->find_recipe(name);
-    chef *chef = this->find_chef();
-    meal m = chef->cook(recipe);
+    std::shared_ptr<recipe> recipe = this->find_recipe(name);
+    if (recipe == nullptr)
+    {
+        return nullptr;
+    }
 
-    return m;
+    std::shared_ptr<chef> chef = this->find_chef();
+    if (chef == nullptr)
+    {
+        return nullptr;
+    }
+
+    std::shared_ptr<meal> meal = chef->cook(recipe);
+
+    return meal;
 }
 
-chef *restaurant::find_chef()
+std::shared_ptr<chef> restaurant::find_chef()
 {
     for (int i = 0; i < this->_chefs.size(); i++)
     {
-        if (!this->_chefs.at(i)->get_is_cooking())
+        if (!this->_chefs[i]->get_is_cooking())
         {
-            return this->_chefs.at(i);
+            return this->_chefs[i];
         }
     }
 
     return nullptr;
 }
 
-recipe *restaurant::find_recipe(std::string name)
+std::shared_ptr<recipe> restaurant::find_recipe(std::string name)
 {
     for (int i = 0; i < this->_recipes.size(); i++)
     {
-        if (this->_recipes.at(i)->get_meal_name() == name)
+        if (this->_recipes[i]->get_meal_name() == name)
         {
-            return this->_recipes.at(i);
+            return this->_recipes[i];
         }
     }
 
     return nullptr;
+}
+
+restaurant::~restaurant()
+{
+    this->_chefs.empty();
+    this->_recipes.empty();
 }

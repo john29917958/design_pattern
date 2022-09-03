@@ -2,6 +2,8 @@
 #define CHEF_H
 
 #include <string>
+#include <memory>
+#include <mutex>
 #include <unordered_map>
 #include "recipe.h"
 #include "meal.h"
@@ -21,7 +23,7 @@ class chef
 {
 public:
     chef(std::string name, sexes sex, std::string phone);
-    meal cook(recipe *recipe);
+    std::shared_ptr<meal> cook(std::shared_ptr<recipe> recipe);
     bool get_is_cooking();
 
 private:

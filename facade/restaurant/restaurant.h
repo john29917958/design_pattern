@@ -5,6 +5,9 @@
 #include <vector>
 #include <fstream>
 #include <sstream>
+#include <stdexcept>
+#include <memory>
+#include <mutex>
 #include "recipe.h"
 #include "meal.h"
 #include "chef.h"
@@ -41,13 +44,15 @@ public:
      * @param name The name of the meal to order.
      * @return meal* Returns cooked meal.
      */
-    meal order(std::string name);
+    std::shared_ptr<meal> order(std::string name);
+
+    ~restaurant();
 
 private:
-    recipe *find_recipe(std::string name);
-    chef *find_chef();
-    std::vector<chef *> _chefs;
-    std::vector<recipe *> _recipes;
+    std::shared_ptr<recipe> find_recipe(std::string name);
+    std::shared_ptr<chef> find_chef();
+    std::vector<std::shared_ptr<chef>> _chefs;
+    std::vector<std::shared_ptr<recipe>> _recipes;
 };
 
 #endif

@@ -7,9 +7,9 @@ chef::chef(std::string name, sexes sex, std::string phone)
     this->phone = phone;
 }
 
-meal chef::cook(recipe *recipe)
-{    
-    meal m(recipe->get_meal_name());
+std::shared_ptr<meal> chef::cook(std::shared_ptr<recipe> recipe)
+{
+    std::shared_ptr<meal> m = std::make_shared<meal>(recipe->get_meal_name());
     return m;
 }
 
