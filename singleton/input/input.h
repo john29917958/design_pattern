@@ -33,7 +33,7 @@ public:
      *
      * @return input* Returns a input pointer.
      */
-    static input *get_instance();
+    static input &get_instance();
 
     /**
      * @brief Gets the pressed input key.

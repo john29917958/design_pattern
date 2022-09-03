@@ -7,14 +7,15 @@ input::input()
 {
 }
 
-input *input::get_instance()
+input &input::get_instance()
 {
     if (input::input_ == nullptr)
     {
         input::input_ = new input();
     }
 
-    return input::input_;
+    input &i = *input::input_;
+    return i;
 }
 
 char input::get()
