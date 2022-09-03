@@ -11,6 +11,13 @@ class input
 {
 public:
     /**
+     * @brief Gets the singleton input instance.
+     *
+     * @return input* Returns a input pointer.
+     */
+    static input &get_instance();
+
+    /**
      * Defines the copy constructor explicitly
      * and deletes it from this singleton class, so the input object is
      * not cloneable. For example this line of code is invalid:
@@ -21,6 +28,7 @@ public:
      * @param other Reference to the object to be copied.     
      */
     input(const input &other) = delete;
+    input(input &other) = delete;
 
     /*
      * Deletes the assignment operator since singleton object should not
@@ -29,22 +37,14 @@ public:
     void operator=(const input &) = delete;
 
     /**
-     * @brief Gets the singleton input instance.
-     *
-     * @return input* Returns a input pointer.
-     */
-    static input *get_instance();
-
-    /**
      * @brief Gets the pressed input key.
      *
      * @return char Returns the pressed input key.
      */
-    char get();
+    char get_key_down();
 
 private:
     input();
-    static input *input_;
 };
 
 #endif
