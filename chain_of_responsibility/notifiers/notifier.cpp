@@ -2,20 +2,20 @@
 
 notifier::notifier(levels level)
 {
-    this->_notify_level = level;
+    this->notify_level_ = level;
 }
 
 void notifier::notify(levels level, std::string message)
 {
-    if (level >= this->_notify_level)
+    if (level >= this->notify_level_)
     {
         printf((this->to_str(level) + ": ").c_str());
         this->send_notification(level, message);
     }
 
-    if (this->_next != nullptr)
+    if (this->next_ != nullptr)
     {
-        this->_next->notify(level, message);
+        this->next_->notify(level, message);
     }
 }
 
@@ -23,12 +23,12 @@ std::shared_ptr<notifier> notifier::next(std::shared_ptr<notifier> next)
 {
     notifier *n = this;
 
-    while (n->_next != nullptr)
+    while (n->next_ != nullptr)
     {
-        n = n->_next.get();
+        n = n->next_.get();
     }
 
-    n->_next = next;
+    n->next_ = next;
 
     return shared_from_this();
 }

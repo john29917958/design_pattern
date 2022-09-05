@@ -25,8 +25,8 @@ protected:
     virtual void send_notification(levels level, std::string message) = 0;
 
 private:
-    levels _notify_level;
-    std::shared_ptr<notifier> _next = nullptr;
+    levels notify_level_;
+    std::shared_ptr<notifier> next_ = nullptr;
     std::string to_str(levels level);
 };
 
