@@ -14,11 +14,11 @@ void stand_state::update()
     char key = input::get();
     if (key == 'A' || key == 'D')
     {
-        this->_machine->set_state(std::make_shared<walk_state>(this->_machine));
+        this->machine_->set_state(std::make_shared<walk_state>(this->machine_));
     }
     else if (key == 'J')
     {
-        this->_machine->set_state(std::make_shared<jump_state>(this->_machine));
+        this->machine_->set_state(std::make_shared<jump_state>(this->machine_));
     }
     else
     {

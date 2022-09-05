@@ -9,7 +9,7 @@ public:
     static char get();
     static void set(char key);
 private:
-    static char _key;
+    static char key_;
 };
 
 #endif

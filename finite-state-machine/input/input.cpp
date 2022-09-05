@@ -1,13 +1,13 @@
 #include "input.h"
 
-char input::_key = ' ';
+char input::key_ = ' ';
 
 char input::get()
 {
-    return input::_key;
+    return input::key_;
 }
 
 void input::set(char key)
 {
-    input::_key = key;
+    input::key_ = key;
 }

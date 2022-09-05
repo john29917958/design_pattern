@@ -30,7 +30,7 @@ public:
 
 protected:
     state(std::shared_ptr<state_machine> state_machine);
-    std::shared_ptr<state_machine> _machine;
+    std::shared_ptr<state_machine> machine_;
 };
 
 #endif

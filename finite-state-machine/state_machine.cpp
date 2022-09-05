@@ -1,47 +1,47 @@
 #include "state_machine.h"
 
-state_machine::state_machine(character &character) : _character(character)
+state_machine::state_machine(character &character) : character_(character)
 {
-    this->_state = nullptr;
+    this->state_ = nullptr;
 }
 
-state_machine::state_machine(std::shared_ptr<state> state, character &character) : _character(character)
+state_machine::state_machine(std::shared_ptr<state> state, character &character) : character_(character)
 {
     if (state != nullptr)
     {
-        this->_state = state;
+        this->state_ = state;
     }
     else
     {
-        this->_state = nullptr;
+        this->state_ = nullptr;
     }
 }
 
 void state_machine::set_state(std::shared_ptr<state> state)
 {
-    if (this->_state != nullptr)
+    if (this->state_ != nullptr)
     {
-        this->_state->exit();
-        this->_state = nullptr;
+        this->state_->exit();
+        this->state_ = nullptr;
     }
 
-    this->_state = state;
+    this->state_ = state;
 
-    if (this->_state != nullptr)
+    if (this->state_ != nullptr)
     {
-        this->_state->enter();
+        this->state_->enter();
     }
 }
 
 void state_machine::update()
 {
-    if (this->_state != nullptr)
+    if (this->state_ != nullptr)
     {
-        this->_state->update();
+        this->state_->update();
     }
 }
 
 character &state_machine::get_character()
 {
-    return this->_character;
+    return this->character_;
 }

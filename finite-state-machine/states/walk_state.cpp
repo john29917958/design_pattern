@@ -18,11 +18,11 @@ void walk_state::update()
     }
     else if (key == 'J')
     {
-        this->_machine->set_state(std::make_shared<jump_state>(this->_machine));
+        this->machine_->set_state(std::make_shared<jump_state>(this->machine_));
     }
     else
     {
-        this->_machine->set_state(std::make_shared<stand_state>(this->_machine));
+        this->machine_->set_state(std::make_shared<stand_state>(this->machine_));
     }
 }
 

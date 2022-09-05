@@ -40,8 +40,8 @@ public:
     character &get_character();
 
 private:
-    std::shared_ptr<state> _state = nullptr;
-    character &_character;
+    std::shared_ptr<state> state_ = nullptr;
+    character &character_;
 };
 
 #endif
