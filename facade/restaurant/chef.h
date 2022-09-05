@@ -6,7 +6,7 @@
 #include <mutex>
 #include <unordered_map>
 #include "recipe.h"
-#include "meal.h"
+#include "food.h"
 
 enum class sexes
 {
@@ -23,7 +23,7 @@ class chef
 {
 public:
     chef(std::string name, sexes sex, std::string phone);
-    std::shared_ptr<meal> cook(std::shared_ptr<recipe> recipe);
+    std::shared_ptr<food> cook(std::shared_ptr<recipe> recipe);
     bool get_is_cooking();
 
 private:

@@ -1,13 +1,13 @@
-#include "meal.h"
+#include "food.h"
 #include <math.h>
 #include <iostream>
 
-meal::meal(std::string name)
+food::food(std::string name)
 {
     this->_name = name;
 }
 
-std::string meal::get_name()
+std::string food::get_name()
 {
     return this->_name;
 }

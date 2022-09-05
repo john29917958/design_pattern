@@ -35,7 +35,7 @@ void restaurant::load_recipes(std::string path)
     }
 }
 
-std::shared_ptr<meal> restaurant::order(std::string name)
+std::shared_ptr<food> restaurant::order(std::string name)
 {
     std::shared_ptr<recipe> recipe = this->find_recipe(name);
     if (recipe == nullptr)
@@ -49,7 +49,7 @@ std::shared_ptr<meal> restaurant::order(std::string name)
         return nullptr;
     }
 
-    std::shared_ptr<meal> meal = chef->cook(recipe);
+    std::shared_ptr<food> meal = chef->cook(recipe);
 
     return meal;
 }

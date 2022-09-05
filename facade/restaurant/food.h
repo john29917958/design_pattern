@@ -1,12 +1,12 @@
-#ifndef MEAL_H
-#define MEAL_H
+#ifndef FOOD_H
+#define FOOD_H
 
 #include <string>
 
-class meal
+class food
 {
 public:
-    meal(std::string name);
+    food(std::string name);
     std::string get_name();
 
 private:

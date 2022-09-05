@@ -9,7 +9,7 @@
 #include <memory>
 #include <mutex>
 #include "recipe.h"
-#include "meal.h"
+#include "food.h"
 #include "chef.h"
 
 /**
@@ -44,7 +44,7 @@ public:
      * @param name The name of the meal to order.
      * @return meal* Returns cooked meal.
      */
-    std::shared_ptr<meal> order(std::string name);
+    std::shared_ptr<food> order(std::string name);
 
     ~restaurant();
 

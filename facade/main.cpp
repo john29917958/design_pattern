@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
     restaurant.load_chefs("res\\chefs");
     restaurant.load_recipes("res\\recipes");
 
-    std::shared_ptr<meal> meal = restaurant.order("Hamburger");
+    std::shared_ptr<food> meal = restaurant.order("Hamburger");
     if (meal == nullptr)
     {
         printf("Failed to order a meal: %s\n");
