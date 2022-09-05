@@ -16,9 +16,9 @@ public:
     virtual void attack() = 0;
 
 private:
-    std::string _name;
-    int _health;
-    int _mana;
+    std::string name_;
+    int health_;
+    int mana_;
 };
 
 #endif

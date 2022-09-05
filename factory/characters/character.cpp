@@ -2,37 +2,37 @@
 
 character::character(std::string name, int health, int mana)
 {
-    this->_name = name;
-    this->_health = health;
-    this->_mana = mana;
+    this->name_ = name;
+    this->health_ = health;
+    this->mana_ = mana;
 }
 
 std::string character::get_name()
 {
-    return this->_name;
+    return this->name_;
 }
 
 void character::set_name(std::string name)
 {
-    this->_name = name;
+    this->name_ = name;
 }
 
 int character::get_health()
 {
-    return this->_health;
+    return this->health_;
 }
 
 void character::set_health(int health)
 {
-    this->_health = health;
+    this->health_ = health;
 }
 
 int character::get_mana()
 {
-    return this->_mana;
+    return this->mana_;
 }
 
 void character::set_mana(int mana)
 {
-    this->_mana = mana;
+    this->mana_ = mana;
 }
