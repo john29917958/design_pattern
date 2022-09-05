@@ -4,10 +4,10 @@
 
 food::food(std::string name)
 {
-    this->_name = name;
+    this->name_ = name;
 }
 
 std::string food::get_name()
 {
-    return this->_name;
+    return this->name_;
 }

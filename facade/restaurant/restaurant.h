@@ -51,8 +51,8 @@ public:
 private:
     std::shared_ptr<recipe> find_recipe(std::string name);
     std::shared_ptr<chef> find_chef();
-    std::vector<std::shared_ptr<chef>> _chefs;
-    std::vector<std::shared_ptr<recipe>> _recipes;
+    std::vector<std::shared_ptr<chef>> chefs_;
+    std::vector<std::shared_ptr<recipe>> recipes_;
 };
 
 #endif

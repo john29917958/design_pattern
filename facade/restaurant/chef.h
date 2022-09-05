@@ -27,10 +27,10 @@ public:
     bool get_is_cooking();
 
 private:
-    std::string _name;
-    sexes _sex;
+    std::string name_;
+    sexes sex_;
     std::string phone;
-    bool _is_cooking;
+    bool is_cooking_;
 };
 
 #endif

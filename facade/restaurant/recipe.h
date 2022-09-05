@@ -6,11 +6,11 @@
 class recipe
 {
 public:
-    recipe(std::string meal_name);
-    std::string get_meal_name();
+    recipe(std::string food_name);
+    std::string get_food_name();
 
 private:
-    std::string _meal_name;
+    std::string food_name_;
 };
 
 #endif

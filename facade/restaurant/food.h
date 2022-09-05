@@ -10,7 +10,7 @@ public:
     std::string get_name();
 
 private:
-    std::string _name;
+    std::string name_;
 };
 
 #endif

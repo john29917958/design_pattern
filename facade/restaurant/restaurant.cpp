@@ -19,7 +19,7 @@ void restaurant::load_chefs(std::string path)
             tokens.push_back(token);
         }
 
-        this->_chefs.push_back(std::make_shared<chef>(tokens.at(0),
+        this->chefs_.push_back(std::make_shared<chef>(tokens.at(0),
             sexes_table.find(tokens.at(1))->second,
             tokens.at(2)));
     }
@@ -31,7 +31,7 @@ void restaurant::load_recipes(std::string path)
     std::string line;
     while (std::getline(file_stream, line))
     {        
-        this->_recipes.push_back(std::make_shared<recipe>(line));
+        this->recipes_.push_back(std::make_shared<recipe>(line));
     }
 }
 
@@ -56,11 +56,11 @@ std::shared_ptr<food> restaurant::order(std::string name)
 
 std::shared_ptr<chef> restaurant::find_chef()
 {
-    for (int i = 0; i < this->_chefs.size(); i++)
+    for (int i = 0; i < this->chefs_.size(); i++)
     {
-        if (!this->_chefs[i]->get_is_cooking())
+        if (!this->chefs_[i]->get_is_cooking())
         {
-            return this->_chefs[i];
+            return this->chefs_[i];
         }
     }
 
@@ -69,11 +69,11 @@ std::shared_ptr<chef> restaurant::find_chef()
 
 std::shared_ptr<recipe> restaurant::find_recipe(std::string name)
 {
-    for (int i = 0; i < this->_recipes.size(); i++)
+    for (int i = 0; i < this->recipes_.size(); i++)
     {
-        if (this->_recipes[i]->get_meal_name() == name)
+        if (this->recipes_[i]->get_food_name() == name)
         {
-            return this->_recipes[i];
+            return this->recipes_[i];
         }
     }
 
@@ -82,6 +82,6 @@ std::shared_ptr<recipe> restaurant::find_recipe(std::string name)
 
 restaurant::~restaurant()
 {
-    this->_chefs.empty();
-    this->_recipes.empty();
+    this->chefs_.empty();
+    this->recipes_.empty();
 }
