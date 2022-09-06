@@ -42,7 +42,7 @@ public:
      * @brief Orders and gets a meal.
      *
      * @param name The name of the meal to order.
-     * @return meal* Returns cooked meal.
+     * @return std::shared_ptr<food> Returns cooked meal.
      */
     std::shared_ptr<food> order(std::string name);
 

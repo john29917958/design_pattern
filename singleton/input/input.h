@@ -18,7 +18,7 @@ public:
      * input i = *input::instance(); // <= Compile error since copy constructor is deleted.
      * @endcode
      *
-     * @param other Reference to the object to be copied.
+     * @param other Reference to the source object.
      */
     input(const input &other) = delete;
 
@@ -31,7 +31,7 @@ public:
     /**
      * @brief Gets the singleton input instance.
      *
-     * @return input* Returns a input pointer.
+     * @return input& Returns a input pointer.
      */
     static input &get_instance();
 
